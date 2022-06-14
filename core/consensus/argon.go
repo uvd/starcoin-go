@@ -17,7 +17,7 @@ func (ArgonConsensus) CalculatePowHash(headBlob []byte, nonce uint32, extra []by
 	if err != nil {
 		return nil, err
 	}
-	var res = argon2.Key(headerBytes, []byte{}, 3, 1024, 1, 32)
+	var res = argon2.Key(headerBytes, headerBytes, 3, 1024, 1, 32)
 	return res, nil
 }
 
